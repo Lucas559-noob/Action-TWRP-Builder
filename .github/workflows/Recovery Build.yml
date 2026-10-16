@@ -152,10 +152,16 @@ jobs:
       with:
         swap-size-gb: 12
 
-    - name: Install libtinfo5
+    - name: Install legacy libraries
       run: |
         sudo apt-get update
-        sudo apt-get install -y --no-install-recommends libtinfo5
+        sudo apt-get install -y --no-install-recommends \
+          libtinfo5 \
+          libncurses5 \
+          libncurses5-dev \
+          lib32ncurses5 \
+          lib32ncurses5-dev \
+          lib32z1
 
     - name: Install Python 2 for legacy AOSP scripts
       run: |

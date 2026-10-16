@@ -152,6 +152,10 @@ jobs:
       with:
         swap-size-gb: 12
 
+    - name: Install libtinfo5
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends libtinfo5
     - name: Building recovery
       run: |
         source build/envsetup.sh

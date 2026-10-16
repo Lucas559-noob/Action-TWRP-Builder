@@ -156,6 +156,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y --no-install-recommends libtinfo5
+
+    - name: Install Python 2 for legacy AOSP scripts
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python2
+        sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     - name: Building recovery
       run: |
         source build/envsetup.sh

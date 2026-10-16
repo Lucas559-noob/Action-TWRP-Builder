@@ -167,6 +167,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y python2
         sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+
+
+    - name: Patch mkbootimg for header v2
+      run: |
+        cd workspace
+        curl -sL "https://android.googlesource.com/platform/system/tools/mkbootimg/+/refs/tags/android-10.0.0_r47/mkbootimg.py?format=TEXT" | base64 -d > system/tools/mkbootimg/mkbootimg.py
     - name: Building recovery
       run: |
         source build/envsetup.sh
